@@ -20,7 +20,7 @@ class Earth(object):
             (   -18, 'nightEnd',      'night'       ),
             (     6, 'goldenHourEnd', 'goldenHour'  )
         )
-        self.e = rad * 23.4397 # obliquity of the Earth
+        self.e = 0.40909994067971484 # obliquity of the Earth
     def solarMeanAnomaly(self,d):
         return rad * (357.5291 + 0.98560028 * d)
     
