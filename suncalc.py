@@ -112,6 +112,13 @@ class Earth(object):
         c  = self.sunCoords(d)
         H  = self.siderealTime(d, lw) - c["ra"]
         return dict(azimuth=self.azimuth(H, phi, c["dec"]), altitude=self.altitude(H, phi, c["dec"]))
+    
+    def getRadius(self,lat):
+        lat=lat*rad
+        c=cos(lat)
+        s=sin(lat)
+        return (((self.re**2*c)**2+(self.rp**2*s)**2)/((self.re*c)**2+(self.rp*s)**2))**.5
+
     @staticmethod
     def fetch(date,lat,long):
         return "https://suncalc.org/#/"+str(lat)+","+str(long)+",17/"+str(date.year)+"."+str(date.month)+"."+str(date.day)+"/"+str(date.hour)+":"+str(date.minute)+"/1/0"
